@@ -162,8 +162,8 @@ public class JdbcCatalog extends BaseMetastoreViewCatalog
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet tableExists =
                 dbMeta.getTables(
-                    null /* catalog name */,
-                    null /* schemaPattern */,
+                    conn.getCatalog() /* catalog name */,
+                    conn.getSchema() /* schemaPattern */,
                     JdbcUtil.CATALOG_TABLE_VIEW_NAME /* tableNamePattern */,
                     null /* types */);
             if (tableExists.next()) {
@@ -181,8 +181,8 @@ public class JdbcCatalog extends BaseMetastoreViewCatalog
             DatabaseMetaData dbMeta = conn.getMetaData();
             ResultSet tableExists =
                 dbMeta.getTables(
-                    null /* catalog name */,
-                    null /* schemaPattern */,
+                    conn.getCatalog() /* catalog name */,
+                    conn.getSchema() /* schemaPattern */,
                     JdbcUtil.NAMESPACE_PROPERTIES_TABLE_NAME /* tableNamePattern */,
                     null /* types */);
 
